@@ -1,0 +1,22 @@
+current directory: /Users/jpierce/Code/recipes/vendor/bundle/ruby/2.0.0/gems/byebug-8.2.2/ext/byebug
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/bin/ruby -r ./siteconf20160306-1689-78ixyn.rb extconf.rb
+creating Makefile
+
+current directory: /Users/jpierce/Code/recipes/vendor/bundle/ruby/2.0.0/gems/byebug-8.2.2/ext/byebug
+make "DESTDIR=" clean
+
+current directory: /Users/jpierce/Code/recipes/vendor/bundle/ruby/2.0.0/gems/byebug-8.2.2/ext/byebug
+make "DESTDIR="
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.bundle
+ld: warning: directory not found for option '-L/usr/local/lib'
+ld: warning: directory not found for option '-L/usr/local/lib'
+
+current directory: /Users/jpierce/Code/recipes/vendor/bundle/ruby/2.0.0/gems/byebug-8.2.2/ext/byebug
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 byebug.bundle ./.gem.20160306-1689-v7qq96/byebug
+installing default byebug libraries
