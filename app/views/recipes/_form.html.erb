@@ -1,3 +1,4 @@
+<div id="recipe-form">
 <%= form_for(@recipe) do |f| %>
   <% if @recipe.errors.any? %>
     <div id="error_explanation">
@@ -17,33 +18,43 @@
   </div>
 
   <div class="form-group">
-  Ingredients:
-  <ul>
-    <%= f.fields_for :ingredients do |ingredients_form| %>
+  <h5>Steps:</h5>
+  <ul id="step-fields">
+    <%= f.fields_for :steps do |steps_form| %>
+      <h5>Step <%= steps_form.index %></h5>
+      List the ingredients involved in this step:
+      <ul class="ingredient-fields">
+        <%= steps_form.fields_for :ingredients do |ingredients_form| %>
+          <li>
+            <%= ingredients_form.label :amount %>
+            <%= ingredients_form.number_field :amount %>
+
+            <%= ingredients_form.label :unit %>
+            <%= ingredients_form.text_field :unit %>
+
+            <%= ingredients_form.label :name %>
+            <%= ingredients_form.text_field :name %>
+
+            <%= ingredients_form.check_box :_destroy %>
+          </li>
+          <li><button class="add-ingredient" data-step-index="<%= steps_form.index %>" data-ing-index="<%= ingredients_form.index + 1 %>">+</button></li>
+          <% end %>
+      </ul>
+
       <li>
-        <%= ingredients_form.label :amount %>
-        <%= ingredients_form.number_field :amount %>
+        <%= steps_form.label :description %>
+        <%= steps_form.text_area :description %>
 
-        <%= ingredients_form.label :unit %>
-        <%= ingredients_form.text_field :unit %>
-
-        <%= ingredients_form.label :name %>
-        <%= ingredients_form.text_field :name %>
-
-        <%= ingredients_form.check_box :_destroy %>
+        <%= steps_form.check_box :_destroy %>
       </li>
     <% end %>
   </ul>
   </div>
-
-  <div class="form-group">
-    <%= f.label :instructions %>
-    <%= f.text_area :instructions %>
-  </div>
-
+  <button class="add-step">add step</button></li>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+</div>
 
-<%= javascript_include_tag 'add_ingredient_fields.js' %>
+<%= javascript_include_tag 'add_fields.js' %>

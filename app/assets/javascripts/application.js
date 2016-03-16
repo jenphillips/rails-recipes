@@ -13,5 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require add_ingredient_fields
+//= require add_fields
 //= require_tree .

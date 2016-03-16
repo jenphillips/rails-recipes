@@ -2,13 +2,14 @@
 
 <%= @recipe.name %>
 
-<% @recipe.ingredients.each do |i| %>
-  <%= i.amount %>
-  <%= i.unit %>
-  <%= i.name %>
+<% @recipe.steps.each do |step| %>
+  <% step.ingredients.each do |i| %>
+    <%= i.amount %>
+    <%= i.unit %>
+    <%= i.name %>
+  <% end %>
+  <%= step.description %>
 <% end %>
-
-<%= @recipe.instructions %>
 
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back', recipes_path %>

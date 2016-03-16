@@ -15,7 +15,10 @@ class RecipesController < ApplicationController
   # GET /recipes/new
   def new
     @recipe = Recipe.new
-    3.times { @recipe.ingredients.build }
+    3.times{ @recipe.steps.build }
+    @recipe.steps.each do |s|
+      s.ingredients.build
+    end
   end
 
   # GET /recipes/1/edit
@@ -70,6 +73,6 @@ class RecipesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.require(:recipe).permit(:name, :instructions, ingredients_attributes: [:id, :amount, :unit, :name, :_destroy])
+      params.require(:recipe).permit(:name, steps_attributes: [:id, :description, :_destroy, ingredients_attributes: [:id, :amount, :unit, :name, :_destroy]] )
     end
 end

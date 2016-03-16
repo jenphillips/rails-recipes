@@ -1,8 +1,9 @@
 class Recipe < ActiveRecord::Base
-  has_many :ingredients
-  accepts_nested_attributes_for :ingredients, reject_if: :reject_ingredients, allow_destroy: true
+  has_many :steps
 
-  def reject_ingredients(attributes)
-    attributes['name'].blank? || attributes['amount'].blank? || attributes['unit'].blank?
+  accepts_nested_attributes_for :steps, reject_if: :reject_steps, allow_destroy: true
+
+  def reject_steps(attributes)
+    attributes['description'].blank?
   end
 end
