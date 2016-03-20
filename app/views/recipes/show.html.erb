@@ -1,15 +1,21 @@
 <p id="notice"><%= notice %></p>
-
-<%= @recipe.name %>
-
-<% @recipe.steps.each do |step| %>
-  <% step.ingredients.each do |i| %>
-    <%= i.amount %>
-    <%= i.unit %>
-    <%= i.name %>
-  <% end %>
-  <%= step.description %>
+<h1><%= @recipe.name %></h1>
+<% consolidate_ingredients([@recipe]).each do |ing| %>
+  <%= ing[0] %>: <%= ing[1] %><br />
 <% end %>
-
+<ol>
+<% @recipe.steps.each do |step| %>
+  <li>
+  <% step.ingredients.each_with_index do |ing, index| %>
+    <%= ing.amount %>
+    <%= ing.unit %>
+    <%= ing.name %><br />
+  <% end %>
+  <br />
+  <%= step.description %>
+  </li>
+  <hr />
+<% end %>
+</ol>
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back', recipes_path %>

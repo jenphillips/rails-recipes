@@ -1,0 +1,22 @@
+Now:
+----
+- Search by ingredient
+
+Later:
+------
+- Select2 box for ingredient search
+- Standardize unit inputs
+- Add tags to recipes
+- Search by tag
+- Don't display "x.0" in ingredient amounts (unless there is an actual fraction)
+- Math for combining ingredients into grocery list
+- Generate grocery list
+- Styling
+- Improve nested form code?
+
+Done:
+-----
+
+- Show all ingredients at top of recipe (get from steps & condense if there are multiple instances of the same ingredient)
+- Models & nested form for steps w/ingredients
+
