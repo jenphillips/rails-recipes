@@ -1,0 +1,4 @@
+<% @results.each do |result| %>
+  <%= link_to result.name, recipe_path(result.id) %>
+  <br />
+<% end %>

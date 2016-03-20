@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'recipes#index'
 
+  get '/search' => "recipes#search"
+
   resources :recipes
 
   # The priority is based upon order of creation: first created -> highest priority.

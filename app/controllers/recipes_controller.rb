@@ -65,6 +65,11 @@ class RecipesController < ApplicationController
     end
   end
 
+  def search
+    query = params[:q]
+    @results = Recipe.joins(:ingredients).where(ingredients: {name: query}).uniq
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_recipe

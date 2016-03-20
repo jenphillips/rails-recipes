@@ -2,6 +2,13 @@
 
 <h1>Listing Recipes</h1>
 
+<div id="search">
+  <%= form_tag("/search", method: "get") do %>
+    <%= label_tag(:q, "Search for:") %>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag("Search") %>
+  <% end %>
+</div>
 <table>
   <thead>
     <tr>
