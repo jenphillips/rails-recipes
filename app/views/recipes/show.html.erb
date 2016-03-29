@@ -17,5 +17,12 @@
   <hr />
 <% end %>
 </ol>
+<h3>Tags:</h3>
+<ul>
+<% @recipe.tags.each do |tag| %>
+  <li><%= tag.name %></li>
+<% end %>
+</ul>
+
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back', recipes_path %>

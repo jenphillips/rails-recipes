@@ -1,12 +1,13 @@
 Now:
 ----
-- Search by ingredient
+- Add tags to recipes
 
 Later:
 ------
+- Errors partial
 - Select2 box for ingredient search
+- Search by recipe title as well as ingredient
 - Standardize unit inputs
-- Add tags to recipes
 - Search by tag
 - Don't display "x.0" in ingredient amounts (unless there is an actual fraction)
 - Math for combining ingredients into grocery list
@@ -16,7 +17,7 @@ Later:
 
 Done:
 -----
-
+- Search by ingredient
 - Show all ingredients at top of recipe (get from steps & condense if there are multiple instances of the same ingredient)
 - Models & nested form for steps w/ingredients
 

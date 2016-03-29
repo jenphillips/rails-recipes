@@ -51,6 +51,11 @@
   </ul>
   </div>
   <button class="add-step">add step</button></li>
+
+  <div class="form-group">
+    <%= f.label "Tags" %>
+    <%= f.collection_check_boxes :tag_ids, Tag.all(), :id, :name %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
