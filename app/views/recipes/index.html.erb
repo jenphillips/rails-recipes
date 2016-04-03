@@ -8,7 +8,7 @@
     <%= text_field_tag(:q) %>
 
     <%= label_tag(:tag, "Filter by tag:") %>
-    <%= collection_select(:tag, :ids, Tag.all(), :id, :name, { include_blank: "Select tag..." } ) %>
+    <%= collection_select(:tag, :ids, Tag.all(), :id, :name, { include_blank: "Select tag..." }, { multiple: true } ) %>
     <%= submit_tag("Search") %>
   <% end %>
 </div>
