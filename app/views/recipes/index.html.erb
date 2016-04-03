@@ -6,6 +6,9 @@
   <%= form_tag("/search", method: "get") do %>
     <%= label_tag(:q, "Search for:") %>
     <%= text_field_tag(:q) %>
+
+    <%= label_tag(:tag, "Filter by tag:") %>
+    <%= collection_select(:tag, :ids, Tag.all(), :id, :name, { include_blank: "Select tag..." } ) %>
     <%= submit_tag("Search") %>
   <% end %>
 </div>
