@@ -1,9 +1,13 @@
 <p id="notice"><%= notice %></p>
 <h1><%= @recipe.name %></h1>
+<% if !@recipe.link.blank? %>
+  <h1><%= @recipe.link %></h1>
+<% end %>
 <% consolidate_ingredients([@recipe]).each do |ing| %>
-  <%= ing[0] %>: <%= ing[1] %><br />
+  <%= rational_to_mixed(ing[1]['amount']) + " #{ing[1]['unit']} #{ing[0]}" %><br />
 <% end %>
 <ol>
+<hr />
 <% @recipe.steps.each do |step| %>
   <li>
   <% step.ingredients.each_with_index do |ing, index| %>

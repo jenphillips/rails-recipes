@@ -1,22 +1,32 @@
 Now:
 ----
-- Add tags to recipes
 
 Later:
 ------
+- Have changed ingredient amounts to strings; need to convert into Rationals (or something) when:
+--- consolidating list at top of recipe show
+--- calculating grocery list
+--- Notes: parse string "1 2/3" either l/r or r/l, use space & slash to split, generate rational
 - Errors partial
+- Standardize unit inputs (autocomplete 'tsp, cup,' etc.)
 - Select2 box for ingredient search
-- Search by recipe title as well as ingredient
-- Standardize unit inputs
-- Search by tag
+- Dropdown for tags (like postit app)
 - Don't display "x.0" in ingredient amounts (unless there is an actual fraction)
 - Math for combining ingredients into grocery list
 - Generate grocery list
 - Styling
 - Improve nested form code?
+- Validate user-input links in recipe form
+- User accounts
+- Account activation / password reset
+- Add an option for 'no ingredient included with this step' (e.g. 'Preheat oven')
+- Add type to ingredients for grocery list (e.g. Dairy, Frozen, Produce, etc.)
 
 Done:
 -----
+- Store ingredient amounts as strings to support mixed numbers (1 1/3)
+- Filter search results by tag
+- Add tags to recipes
 - Search by ingredient
 - Show all ingredients at top of recipe (get from steps & condense if there are multiple instances of the same ingredient)
 - Models & nested form for steps w/ingredients

@@ -18,6 +18,11 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :link %>
+    <%= f.text_field :link %>
+  </div>
+
+  <div class="form-group">
   <h5>Steps:</h5>
   <ul id="step-fields">
     <%= f.fields_for :steps do |steps_form| %>
@@ -27,7 +32,7 @@
         <%= steps_form.fields_for :ingredients do |ingredients_form| %>
           <li>
             <%= ingredients_form.label :amount %>
-            <%= ingredients_form.number_field :amount %>
+            <%= ingredients_form.text_field :amount %>
 
             <%= ingredients_form.label :unit %>
             <%= ingredients_form.text_field :unit %>
@@ -56,6 +61,12 @@
     <%= f.label "Tags" %>
     <%= f.collection_check_boxes :tag_ids, Tag.all(), :id, :name %>
   </div>
+
+  <div class="form-group">
+    <%= f.label :notes %>
+    <%= f.text_area :notes %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

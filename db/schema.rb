@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160329202359) do
+ActiveRecord::Schema.define(version: 20160423171651) do
 
   create_table "ingredients", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "step_id"
-    t.float    "amount"
+    t.string   "amount"
     t.string   "unit"
   end
 
@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 20160329202359) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "link"
+    t.text     "notes"
   end
 
   create_table "steps", force: :cascade do |t|

@@ -4,11 +4,16 @@
 
 <div id="search">
   <%= form_tag("/search", method: "get") do %>
-    <%= label_tag(:q, "Search for:") %>
-    <%= text_field_tag(:q) %>
+    <div class="form-group">
+      <%= label_tag(:q, "Search for ingredient:") %>
+      <%= text_field_tag(:q) %>
+    </div>
 
-    <%= label_tag(:tag, "Filter by tag:") %>
-    <%= collection_select(:tag, :ids, Tag.all(), :id, :name, { include_blank: "Select tag..." }, { multiple: true } ) %>
+    <div class="form-group">
+      <%= label_tag(:tag, "Filter by tag:") %>
+      <%= collection_check_boxes(:tag, :ids, Tag.all, :id, :name) %>
+    </div>
+
     <%= submit_tag("Search") %>
   <% end %>
 </div>
