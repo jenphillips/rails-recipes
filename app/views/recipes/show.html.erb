@@ -1,16 +1,21 @@
 <p id="notice"><%= notice %></p>
-<h1><%= @recipe.name %></h1>
-<% if !@recipe.link.blank? %>
-  <h1><%= @recipe.link %></h1>
+<% if @recipe.link.blank? %>
+  <h1><%= @recipe.name %></h1>
+<% else %>
+  <h1><%= link_to @recipe.name, @recipe.link %></h1>
 <% end %>
+<div class="card">
+<ul>
 <% consolidate_ingredients([@recipe]).each do |ing| %>
-  <%= rational_to_mixed(ing[1]['amount']) + " #{ing[1]['unit']} #{ing[0]}" %><br />
+  <li><%= rational_to_mixed(ing[1]['amount']) + " #{ing[1]['unit']} #{ing[0]}" %></li>
 <% end %>
-<ol>
-<hr />
-<% @recipe.steps.each do |step| %>
+</ul>
+</div>
+<ul>
+<% @recipe.steps.each_with_index do |step, index| %>
   <li>
-  <% step.ingredients.each_with_index do |ing, index| %>
+  <h5>Step <%= index + 1 %></h5>
+  <% step.ingredients.each do |ing| %>
     <%= ing.amount %>
     <%= ing.unit %>
     <%= ing.name %><br />
@@ -20,7 +25,7 @@
   </li>
   <hr />
 <% end %>
-</ol>
+</ul>
 <h3>Tags:</h3>
 <ul>
 <% @recipe.tags.each do |tag| %>

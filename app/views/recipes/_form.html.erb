@@ -14,63 +14,64 @@
 
   <div class="form-group">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class:"form-control" %>
   </div>
 
   <div class="form-group">
     <%= f.label :link %>
-    <%= f.text_field :link %>
+    <%= f.text_field :link, class:"form-control" %>
   </div>
 
   <div class="form-group">
-  <h5>Steps:</h5>
-  <ul id="step-fields">
     <%= f.fields_for :steps do |steps_form| %>
-      <h5>Step <%= steps_form.index %></h5>
-      List the ingredients involved in this step:
-      <ul class="ingredient-fields">
+      <h5>Step <%= steps_form.index + 1%></h5>
+      <div class="ingredient-fields">
         <%= steps_form.fields_for :ingredients do |ingredients_form| %>
-          <li>
-            <%= ingredients_form.label :amount %>
-            <%= ingredients_form.text_field :amount %>
-
-            <%= ingredients_form.label :unit %>
-            <%= ingredients_form.text_field :unit %>
-
-            <%= ingredients_form.label :name %>
-            <%= ingredients_form.text_field :name %>
-
-            <%= ingredients_form.check_box :_destroy %>
-          </li>
-          <li><button class="add-ingredient" data-step-index="<%= steps_form.index %>" data-ing-index="<%= ingredients_form.index + 1 %>">+</button></li>
+          <div class="row">
+            <div class="col-md-2">
+              <%= ingredients_form.text_field :amount, placeholder: "1", class: "form-control" %>
+            </div>
+            <div class="col-md-2">
+              <%= ingredients_form.select :unit, options_for_select(['cups', 'tsp', 'tbsp', 'piece(s)', 'oz']), 
+                {}, {class: "form-control c-select"} %>
+            </div>
+            <div class="col-md-3">
+              <%= ingredients_form.text_field :name, placeholder: "ingredient", class: "form-control" %>
+            </div>
+            <div class="col-md-1">
+              <%= ingredients_form.check_box :_destroy, class: "form-control" %><small>x</small>
+            </div>
+          </div>
+          <button class="add-ingredient" data-step-index="<%= steps_form.index %>" data-ing-index="<%= ingredients_form.index + 1 %>">+</button>
           <% end %>
-      </ul>
-
-      <li>
-        <%= steps_form.label :description %>
-        <%= steps_form.text_area :description %>
+      </div>
+      <div class="form-group">
+        <%= steps_form.text_area :description, placeholder: "Directions...", class: "form-control" %>
 
         <%= steps_form.check_box :_destroy %>
-      </li>
+        <%= steps_form.label "delete this step" %>
+      </div>
     <% end %>
-  </ul>
   </div>
-  <button class="add-step">add step</button></li>
+  <button class="add-step btn btn-secondary">Add a Step</button></li>
 
+  <hr />
   <div class="form-group">
-    <%= f.label "Tags" %>
-    <%= f.collection_check_boxes :tag_ids, Tag.all(), :id, :name %>
+    <%= f.collection_check_boxes :tag_ids, Tag.all().order('name'), :id, :name do |cb| %>
+      <% cb.label(class: "checkbox-inline") {cb.check_box(class: "checkbox") + cb.text} %>
+    <% end %>
   </div>
 
   <div class="form-group">
     <%= f.label :notes %>
-    <%= f.text_area :notes %>
+    <%= f.text_area :notes, class:"form-control" %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Create Recipe", class:"btn btn-primary" %>
   </div>
 <% end %>
 </div>
 
+<br />
 <%= javascript_include_tag 'add_fields.js' %>

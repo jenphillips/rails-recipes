@@ -13,7 +13,7 @@ $('#recipe-form').on('click', 'button.add-ingredient', function(e) {
   $(this).before(
     '<li>' +
       '<label for="recipe_steps_attributes_' + currentStep + '_ingredients_attributes_' + ingCounter + '_amount">Amount</label> ' +
-      '<input type="number" value="" name="recipe[steps_attributes][' + currentStep + '][ingredients_attributes][' + ingCounter + '][amount]" id="recipe_steps_attributes_' + currentStep + '_ingredients_attributes_' + ingCounter + '_amount"> ' +
+      '<input type="text" value="" name="recipe[steps_attributes][' + currentStep + '][ingredients_attributes][' + ingCounter + '][amount]" id="recipe_steps_attributes_' + currentStep + '_ingredients_attributes_' + ingCounter + '_amount"> ' +
 
       '<label for="recipe_steps_attributes_' + currentStep + '_ingredients_attributes_' + ingCounter + '_unit">Unit</label> ' +
       '<input type="text" value="" name="recipe[steps_attributes][' + currentStep + '][ingredients_attributes][' + ingCounter + '][unit]" id="recipe_steps_attributes_' + currentStep + '_ingredients_attributes_' + ingCounter + '_unit"> ' +
@@ -40,7 +40,7 @@ $('#recipe-form').on('click', 'button.add-step', function(e) {
     '</ul>' +
     '<li>' +
       '<label for="recipe_steps_attributes_' + stepCounter + '_description">Description</label>' +
-      '<textarea name="recipe[steps_attributes][' + stepCounter + '][description]" id="recipe_steps_attributes_' + stepCounter + '_description"></textarea>' +
+      '<textarea name="recipe[steps_attributes][' + stepCounter + '][description]" id="recipe_steps_attributes_' + stepCounter + '_description" class="form-control"></textarea>' +
 
       '<input name="recipe[steps_attributes][' + stepCounter + '][_destroy]" type="hidden" value="0"><input type="checkbox" value="' + stepCounter + '" name="recipe[steps_attributes][' + stepCounter + '][_destroy]" id="recipe_steps_attributes_' + stepCounter + '__destroy">' +
     '</li>'

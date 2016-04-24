@@ -5,6 +5,8 @@ module ApplicationHelper
     # Consolidates multiple entries for ingredients with same name into one row
 
     # XXX For now assume just one recipe
+    # XXX TODO:  Right now this assumes units across multiple entries are the same
+    # (1 tbsp + 1/2 tbsp). Need to check for different units (1 tbsp + 1 cup).
     recipe = recipes[0]
     consolidated_ingredients = {}
     recipe.ingredients.each do |ing|

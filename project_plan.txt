@@ -19,8 +19,12 @@ Later:
 - Validate user-input links in recipe form
 - User accounts
 - Account activation / password reset
-- Add an option for 'no ingredient included with this step' (e.g. 'Preheat oven')
+- If no ingredient is included, add option to hide/remove input fields.  (Not essential, no error thrown if blank.)
+- Add option to re-order steps
+- Hide 'delete' check boxes on create form
 - Add type to ingredients for grocery list (e.g. Dairy, Frozen, Produce, etc.)
+- Check for different units in amount consolidation.
+- Set default unit for ingredients as blank, if possible (remove 'piece(s)')
 
 Done:
 -----
