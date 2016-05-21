@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+  before_action :set_step_index, only: [:new, :edit]
 
   # GET /recipes
   # GET /recipes.json
@@ -89,5 +90,9 @@ class RecipesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
       params.require(:recipe).permit(:name, :link, :notes, tag_ids: [], steps_attributes: [:id, :description, :_destroy, ingredients_attributes: [:id, :amount, :unit, :name, :_destroy]] )
+    end
+
+    def set_step_index
+      @step_index = 0
     end
 end

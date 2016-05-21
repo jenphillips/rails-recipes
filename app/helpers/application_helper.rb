@@ -60,8 +60,10 @@ module ApplicationHelper
 
   def rational_to_mixed(rat)
     # Convert a rational to a mixed number for display (e.g. "3/2" -> "1 1/2")
+    # Also returns display values for whole numbers and fractions
     int = rat.to_i
     if (int != rat.to_f) && (int > 0)
+      # Mixed number
       fraction = rat - int
       "#{int} #{fraction}"
     else

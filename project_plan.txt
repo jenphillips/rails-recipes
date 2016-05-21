@@ -1,18 +1,16 @@
 Now:
 ----
+- Fix js-generated new form fields
+- Add 'pinch' to units
 
 Later:
 ------
-- Have changed ingredient amounts to strings; need to convert into Rationals (or something) when:
---- consolidating list at top of recipe show
---- calculating grocery list
---- Notes: parse string "1 2/3" either l/r or r/l, use space & slash to split, generate rational
+- Check for different units in amount consolidation.
+- Set default unit for ingredients as blank, if possible (remove 'piece(s)')
 - Errors partial
-- Standardize unit inputs (autocomplete 'tsp, cup,' etc.)
 - Select2 box for ingredient search
 - Dropdown for tags (like postit app)
 - Don't display "x.0" in ingredient amounts (unless there is an actual fraction)
-- Math for combining ingredients into grocery list
 - Generate grocery list
 - Styling
 - Improve nested form code?
@@ -23,11 +21,14 @@ Later:
 - Add option to re-order steps
 - Hide 'delete' check boxes on create form
 - Add type to ingredients for grocery list (e.g. Dairy, Frozen, Produce, etc.)
-- Check for different units in amount consolidation.
-- Set default unit for ingredients as blank, if possible (remove 'piece(s)')
 
 Done:
 -----
+- Standardize unit inputs (autocomplete 'tsp, cup,' etc.)
+- Have changed ingredient amounts to strings; need to convert into Rationals (or something) when:
+--- consolidating list at top of recipe show
+--- calculating grocery list
+--- Notes: parse string "1 2/3" either l/r or r/l, use space & slash to split, generate rational
 - Store ingredient amounts as strings to support mixed numbers (1 1/3)
 - Filter search results by tag
 - Add tags to recipes
