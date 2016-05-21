@@ -4,17 +4,19 @@
 
 <div id="search">
   <%= form_tag("/search", method: "get") do %>
-    <div class="form-group">
-      <%= label_tag(:q, "Search for ingredient:") %>
-      <%= text_field_tag(:q) %>
+    <div class="row">
+      <div class="form-group col-md-4">
+        <%= label_tag(:q, "Search for ingredient:") %>
+        <%= text_field_tag(:q) %>
+      </div>
+      <%= submit_tag("Search") %>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" id="search-tags">
       <%= label_tag(:tag, "Filter by tag:") %>
       <%= collection_check_boxes(:tag, :ids, Tag.all, :id, :name) %>
     </div>
 
-    <%= submit_tag("Search") %>
   <% end %>
 </div>
 <table>
@@ -25,7 +27,7 @@
   </thead>
 
   <tbody>
-    <% @recipes.each do |recipe| %>
+    <% @recipes.order("name").each do |recipe| %>
       <tr>
         <td><%= recipe.name %></td>
         <td><%= link_to 'Show', recipe %></td>

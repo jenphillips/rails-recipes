@@ -78,7 +78,12 @@ class RecipesController < ApplicationController
     #   INNER JOIN tags ON tags.id=recipe_tags.tag_id
     #   WHERE (tags.name="Entrees"  OR tags.name="Desserts") AND ingredients.name="cinnamon";
 
-    @results = Recipe.joins(:tags, :ingredients).where(ingredients: {name: query}, tags: {id: tags}).uniq
+    @results = Recipe.joins(:tags, :ingredients).where(ingredients: {name: query}).uniq
+
+    if !tags[0].blank?
+      @results = @results.where(tags: {id: tags})
+    end
+
   end
 
   private
